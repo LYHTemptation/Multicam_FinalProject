@@ -27,6 +27,9 @@ public class PageController {
 		return "adminPage_Summary";
 	}
 	
-
+	@RequestMapping("adminPage_Category_InsertForm")
+	public String adminPage_Category_InsertForm() {
+		return "adminPage_Category_InsertForm";
+	}
 	
 }

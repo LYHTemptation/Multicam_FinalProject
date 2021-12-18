@@ -9,7 +9,7 @@ $(document).ready(function(){
     		
     		$.post('../adminPageMember_Update',{id,pw,email,phone_no,user_no},function(data){
     			opener.parent.location.reload();
-    			window.close();					
+    			window.close();	
     			
     		});	
     		

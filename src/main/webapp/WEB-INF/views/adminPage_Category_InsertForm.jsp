@@ -34,7 +34,7 @@
                     <!-- Contact form-->
                     <div class="bg-light rounded-3 py-5 px-4 px-md-5 mb-5">
                         <div class="text-center mb-5">
-                            <h1 class="fw-bolder">멤버수정</h1>
+                            <h1 class="fw-bolder">카테고리 추가</h1>
                         </div>
                         <div class="row gx-5 justify-content-center">
                             <div class="col-lg-8 col-xl-6">
@@ -46,31 +46,26 @@
                                 <!-- https://startbootstrap.com/solution/contact-forms-->
                                 <!-- to get an API token!-->
                                 <form id="contactForm" action="adminPage_Member_Update">
-                                <input type="hidden" id="user_no" value="${data[0].user_no }">
+                           
                                     <!-- Name input-->
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="id" type="text" value="${data[0].id }"/>
-                                    	<label for="id">ID</label>
-                                    </div>
-                                    <!-- Email address input-->
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="pw" type="password" value="${data[0].pw }" />
-                                    	<label for="password">Password</label>
-                                    </div>
+                                    <div class="form-floating mb-3">상황
+                                        <input class="form-control" id="place" type="text" value=""/>
+                                        <select name="order" form="myForm">
+										    <option value="cafe">카페</option>
+										    <option value="airport">공항</option>
+										    <option value="movie">영화관</option>
+										    <option value="restaurant">식당</option>
+										</select>
+                                    </div>                  
                                     <!-- Phone number input-->
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="email" type="text" value="${data[0].email }"/>
-                                    	<label for="email">Email</label>
+                                    <div class="form-floating mb-3">텍스트
+                                        <input class="form-control" id="place_text" type="text" value=""/>
                                     </div>
-                                    <!-- Message input-->
-                                    <div class="form-floating mb-3">
-                                        <input class="form-control" id="phone_no" type="text" value="${data[0].phone_no }"/>
-                                    	<label for="phone_no">Phone</label>
-                                    </div>
+
                                  
 
                                     <!-- Submit Button-->
-                                    <div class="d-grid" style="margin-bottom:15px;"><button class="btn btn-primary btn-lg" id="adminPageMember_Update" type="button">수정완료</button></div>
+                                    <div class="d-grid" style="margin-bottom:15px;"><button class="btn btn-primary btn-lg" id="adminPageMember_Update" type="submit">추가</button></div>
                                     <div class="text-center mb-5">
                                             <!-- <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-twitter"></i></a>
                                             <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-facebook"></i></a>

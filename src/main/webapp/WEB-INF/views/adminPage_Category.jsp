@@ -58,40 +58,36 @@
             <section class="py-5">
                 <div class="container px-5 my-5">
                     <div class="text-center mb-5">
-                        <h1 class="fw-bolder">관리자 페이지(회원관리)</h1>
+                        <h1 class="fw-bolder">관리자 페이지(카테고리)</h1>
+                        					
                         <p class="lead fw-normal text-muted mb-0">
                         	<input type="button" class="btn btn-primary" onClick="location.href='adminpage_board'" value="게시판관리">
                         	<input type="button" class="btn btn-primary" onClick="location.href='adminpage_member'" value="회원관리">                        	
-                        	<input type="button" class="btn btn-primary" onClick="location.href='adminpage_summary'" value="즐겨찾기관리">                       	
+                        	<input type="button" class="btn btn-primary" onClick="location.href='adminpage_category'" value="카테고리관리">                      	
                         </p>
                     </div>
                     <div class="row gx-5">
                         <div class="col-xl-8">
                             <!-- FAQ Accordion 1-->
-                            <h2 class="fw-bolder mb-3">회원목록</h2>
+                            <h2 class="fw-bolder mb-3">카테고리 목록
+                          	  <button type="button" onclick="window.open('/adminPage_Category_InsertForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=500,height=750');" class="btn btn-primary btn-sm">추가</button>
+							</h2>
+                            
                             <table border="1" class="table table-striped">
 								<thead>
 								<tr>
-									<th>no</th>
-									<th>아이디</th>
-									<th>이메일</th>
-									<th>연락처</th>
-									<th>타입</th>
-									<th>관리</th>
+									<th>상황</th>
+									<th>메시지</th>
 								</tr>
 								</thead>
 								
 								<tbody>
-								<c:forEach items="${list }" var="list">
+								<c:forEach items="${categoryList }" var="categoryList">									
 									<tr>
-										<td>${list.user_no}</td>
-										<td>${list.id}</td>
-										<td>${list.email }</td>
-										<td>${list.phone_no}</td>
-										<td>${list.user_type}</td>
-										<td>
-											<button type="button" onclick="window.open('/adminPage_Member_UpdateForm?user_no=${list.user_no}', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=1000,height=450');" class="btn btn-primary btn-sm">수정</button>
-											<button type="button" onclick="location.href='adminPage_MemberDelete?user_no=${list.user_no}'" class="btn btn-primary btn-sm">삭제</button>
+										<td>${categoryList.place}</td>
+										<td>${categoryList.place_text}</td>
+										<td>							
+											<button type="button" onclick="location.href='adminPage_CategoryDelete?category_no=${categoryList.category_no }'" class="btn btn-primary btn-sm">삭제</button>
 										</td>
 									</tr>
 								</c:forEach>

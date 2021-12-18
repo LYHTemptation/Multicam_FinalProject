@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.AdminPageDAO;
 import com.example.demo.vo.BoardVO;
+import com.example.demo.vo.CategoryVO;
 import com.example.demo.vo.MemberVO;
 
 @Service
@@ -42,6 +43,15 @@ public class AdminpageService {
 
 	public void BoardDelete(BoardVO boardVO) throws DataAccessException{
 		adminpageDAO.boardDelete(boardVO);
+		
+	}
+
+	public List<CategoryVO> categoryList() throws DataAccessException{
+		return adminpageDAO.categoryList();
+	}
+
+	public void categoryDelete(CategoryVO categoryVO) throws DataAccessException{
+		adminpageDAO.categoryDelete(categoryVO);
 		
 	}
 

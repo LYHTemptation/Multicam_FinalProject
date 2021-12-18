@@ -63,7 +63,7 @@
                         <p class="lead fw-normal text-muted mb-0">
                         	<input type="button" class="btn btn-primary" onClick="location.href='adminpage_board'" value="게시판관리">
                         	<input type="button" class="btn btn-primary" onClick="location.href='adminpage_member'" value="회원관리">                        	
-                        	<input type="button" class="btn btn-primary" onClick="location.href='adminpage_summary'" value="즐겨찾기관리">                       	
+                        	<input type="button" class="btn btn-primary" onClick="location.href='adminpage_category'" value="카테고리관리">                       	
                         </p>
                     </div>
                     <div class="row gx-5">

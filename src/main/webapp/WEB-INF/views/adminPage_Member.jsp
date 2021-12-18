@@ -25,7 +25,7 @@
     </head>
     <body class="d-flex flex-column h-100">
         <input type="hidden" value="${member.id }" id="member" >
-   		 <input type="hidden" value="${member.user_type }" id="user_type" >
+   		<input type="hidden" value="${member.user_type }" id="user_type" >
     
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -62,7 +62,7 @@
                         <p class="lead fw-normal text-muted mb-0">
                         	<input type="button" class="btn btn-primary" onClick="location.href='adminpage_board'" value="게시판관리">
                         	<input type="button" class="btn btn-primary" onClick="location.href='adminpage_member'" value="회원관리">                        	
-                        	<input type="button" class="btn btn-primary" onClick="location.href='adminpage_summary'" value="즐겨찾기관리">                       	
+                        	<input type="button" class="btn btn-primary" onClick="location.href='adminpage_category'" value="카테고리관리">                       	
                         </p>
                     </div>
                     <div class="row gx-5">
@@ -90,7 +90,7 @@
 										<td>${list.phone_no}</td>
 										<td>${list.user_type}</td>
 										<td>
-											<button type="button" onclick="window.open('/adminPage_Member_UpdateForm?user_no=${list.user_no}', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=1000,height=450');" class="btn btn-primary btn-sm">수정</button>
+											<button type="button" onclick="window.open('/adminPage_Member_UpdateForm?user_no=${list.user_no}', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=500,height=750');" class="btn btn-primary btn-sm">수정</button>
 											<button type="button" onclick="location.href='adminPage_MemberDelete?user_no=${list.user_no}'" class="btn btn-primary btn-sm">삭제</button>
 										</td>
 									</tr>

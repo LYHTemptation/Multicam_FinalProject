@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.service.AdminpageService;
 import com.example.demo.vo.BoardVO;
+import com.example.demo.vo.CategoryVO;
 import com.example.demo.vo.MemberVO;
 
 @Controller
@@ -40,6 +41,19 @@ public class AdminPageController {
 		return "adminPage_Board";
 	}
 	
+	//관리자페이지 -> 카테고리관리 호출
+	@RequestMapping("adminpage_category")
+	public String adminpage_category(Model model) {
+		
+		List<CategoryVO> categoryList = adminpageService.categoryList();
+		model.addAttribute("categoryList", categoryList);	
+		
+		System.out.println("카테고리페이지 호출값 " + categoryList);
+		
+		
+		return "adminPage_Category";
+	}
+	
 	//관리자페이지-> 멤버관리-> 삭제처리
 	@RequestMapping("adminPage_MemberDelete")
 	public String adminPage_MemberDelete(MemberVO memberVO) {
@@ -59,6 +73,17 @@ public class AdminPageController {
 		adminpageService.BoardDelete(boardVO);
 		
 		return "redirect:/adminpage_board";
+	}
+	
+	
+	@RequestMapping("adminPage_CategoryDelete")
+	public String adminPage_CategoryDelete(CategoryVO categoryVO) {
+		
+		System.out.println("카테고리 삭제 NO : " + categoryVO);
+		
+		adminpageService.categoryDelete(categoryVO);
+		
+		return "redirect:/adminpage_category";
 	}
 	
 	//관리자페이지 -> 멤버관리->업데이트폼 호출

@@ -1,14 +1,35 @@
 package com.example.demo.vo;
 
+import java.time.LocalDateTime;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BoardVO {
 
+
 	private int no, user_no, count;
 	private String title, content;
 	private Date registerDate;
 	
+	private int idx;
+
+	private LocalDateTime insertTime;
+	
+	public int getIdx() {
+		return idx;
+	}
+
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
+
+	public LocalDateTime getInsertTime() {
+		return insertTime;
+	}
+
+	public void setInsertTime(LocalDateTime insertTime) {
+		this.insertTime = insertTime;
+	}
 	
 	public BoardVO() {}
 	

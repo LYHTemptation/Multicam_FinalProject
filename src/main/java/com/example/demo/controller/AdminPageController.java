@@ -41,6 +41,8 @@ public class AdminPageController {
 		return "adminPage_Board";
 	}
 	
+	
+	
 	//관리자페이지 -> 카테고리관리 호출
 	@RequestMapping("adminpage_category")
 	public String adminpage_category(Model model) {
@@ -53,6 +55,18 @@ public class AdminPageController {
 		
 		return "adminPage_Category";
 	}
+	
+	//관리자페이지->카테고리관리->텍스트추가 화면호출(select)
+	@RequestMapping("adminPage_CategoryText_InsertForm")
+	public String adminPage_CategoryText_InsertForm(Model model) {
+		
+		List<CategoryVO> categoryTextList = adminpageService.categoryTextList();
+		model.addAttribute("categoryTextList", categoryTextList);
+		
+		return "adminPage_CategoryText_InsertForm";
+	}
+
+	
 	
 	//관리자페이지-> 멤버관리-> 삭제처리
 	@RequestMapping("adminPage_MemberDelete")
@@ -75,7 +89,7 @@ public class AdminPageController {
 		return "redirect:/adminpage_board";
 	}
 	
-	
+	//관리자페이지 -> 카테고리관리 ->삭제처리
 	@RequestMapping("adminPage_CategoryDelete")
 	public String adminPage_CategoryDelete(CategoryVO categoryVO) {
 		
@@ -102,7 +116,6 @@ public class AdminPageController {
 	
 	//관리자게시판-> 멤버관리->수정처리
 	@RequestMapping("adminPageMember_Update")
-	@ResponseBody
 	public String adminPage_Member_Update(MemberVO memberVO) {
 		
 		System.out.println("업데이트값  " + memberVO);
@@ -111,6 +124,27 @@ public class AdminPageController {
 		return "redirect:/adminpage_member";
 	}
 	
+	//관리자게시판 ->카테고리관리->카테고리추가
+	@RequestMapping("adminPage_Category_Insert")
+	public String adminPage_Category_Insert(CategoryVO categoryVO) {
+		
+		System.out.println("category 추가 값 " + categoryVO);
+		
+		adminpageService.categoryInsert(categoryVO);
+		
+		return "redirect:/adminpage_category"; 
+	}
+	
+	//관리자페이지 -> 카테고리 관리->텍스트추가
+	@RequestMapping("adminPage_CategoryText_Insert")
+	@ResponseBody
+	public String adminPage_CategoryText_Insert(CategoryVO categoryVO) {
+		System.out.println("텍스트 추가값 " + categoryVO);
+		
+		adminpageService.categoryTextInsert(categoryVO);
+		
+		return "redirect:/adminpage_category"; 
+	}
 
 	
 }

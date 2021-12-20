@@ -55,4 +55,18 @@ public class AdminpageService {
 		
 	}
 
+	public void categoryInsert(CategoryVO categoryVO) throws DataAccessException{
+		adminpageDAO.categoryInsert(categoryVO);
+		
+	}
+
+	public List<CategoryVO> categoryTextList() throws DataAccessException{		
+		return adminpageDAO.categoryTextList();
+	}
+
+	public void categoryTextInsert(CategoryVO categoryVO) throws DataAccessException{
+		adminpageDAO.categoryTextInsert(categoryVO);
+		
+	}
+
 }

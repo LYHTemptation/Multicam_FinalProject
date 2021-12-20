@@ -45,27 +45,32 @@
                                 <!-- To make this form functional, sign up at-->
                                 <!-- https://startbootstrap.com/solution/contact-forms-->
                                 <!-- to get an API token!-->
-                                <form id="contactForm" action="adminPage_Member_Update">
+                                <form id="contactForm" action="adminPage_CategoryText_Insert">
                            
                                     <!-- Name input-->
-                                    <div class="form-floating mb-3">상황
-                                        <input class="form-control" id="place" type="text" value=""/>
-                                        <select name="order" form="myForm">
-										    <option value="cafe">카페</option>
-										    <option value="airport">공항</option>
-										    <option value="movie">영화관</option>
-										    <option value="restaurant">식당</option>
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select form-select-sm" name="selectbox" aria-label=".form-select-sm example">
+										  <option selected>추가할 상황을 선택해주세요.</option>
+											<c:forEach items="${categoryTextList }" var="categoryTextList">
+												<option id="selectbox"  value="${categoryTextList.place }">${categoryTextList.place }</option>										
+											</c:forEach>
+										 <!--  <option value="1">One</option>
+										  <option value="2">Two</option>
+										  <option value="3">Three</option> -->
 										</select>
+										<label for="place">상황</label>
                                     </div>                  
                                     <!-- Phone number input-->
-                                    <div class="form-floating mb-3">텍스트
+                                    <div class="form-floating mb-3">
                                         <input class="form-control" id="place_text" type="text" value=""/>
+                                        <label for="placeText">텍스트</label>
                                     </div>
-
+									
+									<input type="hidden" id="user_no" value="${member.user_no }">
                                  
 
                                     <!-- Submit Button-->
-                                    <div class="d-grid" style="margin-bottom:15px;"><button class="btn btn-primary btn-lg" id="adminPageMember_Update" type="submit">추가</button></div>
+                                    <div class="d-grid" style="margin-bottom:15px;"><button class="btn btn-primary btn-lg" id="adminPage_CategoryText_Insert_Btn" type="button">추가</button></div>
                                     <div class="text-center mb-5">
                                             <!-- <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-twitter"></i></a>
                                             <a class="fs-5 px-2 link-dark" href="#!"><i class="bi-facebook"></i></a>
@@ -88,7 +93,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/update.js"></script>
+        <script src="js/adminInsert.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

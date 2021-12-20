@@ -68,10 +68,20 @@
                     </div>
                     <div class="row gx-5">
                         <div class="col-xl-8">
-                            <!-- FAQ Accordion 1-->
+                        	<span style="display:inline">
                             <h2 class="fw-bolder mb-3">카테고리 목록
-                          	  <button type="button" onclick="window.open('/adminPage_Category_InsertForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=500,height=750');" class="btn btn-primary btn-sm">추가</button>
+                          	  <button type="button" onclick="window.open('/adminPage_Category_InsertForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=500,height=750');" class="btn btn-primary btn-sm">카테고리 추가</button>
+                          	  <button type="button" onclick="window.open('/adminPage_CategoryText_InsertForm', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=50,left=500,width=500,height=750');" class="btn btn-primary btn-sm">텍스트 추가</button>
+                          	  
+                          	  	<select style="width:100px; display:inline;" class="form-select form-select-sm" name="selectbox" aria-label=".form-select-sm example">
+									<option selected>전체</option>
+								    <option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Three</option>
+							  	</select>
+							  	<input type="text" style="width:200px; display:inline; height:30px; font-size:20px;" >
 							</h2>
+							</span>
                             
                             <table border="1" class="table table-striped">
 								<thead>

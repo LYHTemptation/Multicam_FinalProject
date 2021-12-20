@@ -49,11 +49,24 @@
     </update>	
 	
 	
-	<!-- 회원가입 -->
-	<insert id="memberJoin" parameterType="memberVO">
-	    insert into member(no, id,name,pw,email,phone)
-        values(member_no.NEXTVAL, #{id},#{name},#{pw},#{email},#{phone})
+	<!-- 어드민페이지->즐겨찾기관리->카테고리추가 -->
+	<insert id="categoryInsert" parameterType="CategoryVO">
+	    insert into category_text(place, place_text, user_no)
+        values(#{place}, #{place_text}, #{user_no})
     </insert>   
+	
+		
+	<select id="categoryTextList" resultType="CategoryVO">
+		SELECT distinct place FROM category_text;
+	</select>
+	
+	
+	<insert id="categoryTextInsert" parameterType="CategoryVO">
+	    insert into category_text(place, place_text, user_no)
+        values(#{place}, #{place_text}, #{user_no})
+    </insert>   
+    
+    
     
     
 

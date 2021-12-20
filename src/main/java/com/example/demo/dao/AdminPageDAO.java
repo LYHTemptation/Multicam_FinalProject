@@ -28,6 +28,12 @@ public interface AdminPageDAO {
 
 	public List<CategoryVO> categoryList() throws DataAccessException;
 
-	public void categoryDelete(CategoryVO categoryVO) throws DataAccessException; 
+	public void categoryDelete(CategoryVO categoryVO) throws DataAccessException;
+
+	public void categoryInsert(CategoryVO categoryVO) throws DataAccessException;
+
+	public List<CategoryVO> categoryTextList() throws DataAccessException;
+
+	public void categoryTextInsert(CategoryVO categoryVO) throws DataAccessException; 
 	
 }

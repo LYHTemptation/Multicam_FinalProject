@@ -34,7 +34,7 @@ public class BoardController {
 	public String registerProposal(HttpServletRequest request, BoardVO boardVO,ModelMap model,HttpSession session,MemberVO memberVO) {
 		session = request.getSession();
 		memberVO = (MemberVO) session.getAttribute("memberVO");
-		boardVO.setUser_no(memberVO.getUser_no());
+		boardVO.setUser_no(Integer.parseInt(memberVO.getUser_no()));
 		int IDX = boardService.selectIdx2();
 		boardVO.setIdx(IDX+1);
 		System.out.println(boardVO);

@@ -7,25 +7,52 @@
 <mapper namespace="com.example.demo.dao.MemberDAO">
 	
 	<!-- 회원가입 -->
-	<insert id="memberJoin" parameterType="memberVO">
+	<insert id="memberJoin" parameterType="MemberVO">
 	    insert into member(no, id,name,pw,email,phone)
         values(member_no.NEXTVAL, #{id},#{name},#{pw},#{email},#{phone})
     </insert>
 			
 	<!-- 로그인 -->
-	<select id="login" parameterType="memberVO" resultType="memberVO">
+	<select id="login" parameterType="MemberVO" resultType="MemberVO">
 		select * from user where id=#{id} and pw=#{pw}
     </select>
     
-    <select id="selectAllMember" resultType="memberVO">
+    <select id="selectAllMember" resultType="MemberVO">
 	    select * from member_courier
     </select>
     
-    <update id="updateMemberPw" parameterType="memberVO">
+    <update id="updateMemberPw" parameterType="MemberVO">
 	    update member_courier set pw=#{pw} where id=#{id}
     </update>
     <delete id="deleteMember" parameterType="String">
 	    delete from member_courier where id=#{id}
     </delete>
 
+<<<<<<< HEAD
 </mapper>  
+=======
+	<select id="selectAllMember" resultType="memberVO">
+		select * from user
+	</select>
+	
+
+	 <select id="idCheck" parameterType="String" resultType="int">
+        SELECT COUNT(id) FROM USER WHERE id= #{id}
+     </select>
+	
+	<insert id="insertMember" parameterType="memberVO">
+		insert into user(id,pw,name,email,phone_no)
+		values(#{id},#{pw},#{name},#{email},#{phone_no})
+	</insert>
+	
+	<update id="updateMemberPw" parameterType="memberVO">
+		update user set pw=#{pw} where id=#{id}
+	</update>
+	
+	<delete id="deleteMember" parameterType="String">
+		delete from user where id=#{id}
+	</delete>
+	
+</mapper>  
+
+>>>>>>> refs/remotes/origin/TestMaster

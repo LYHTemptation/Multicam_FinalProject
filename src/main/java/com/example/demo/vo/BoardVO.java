@@ -1,26 +1,54 @@
 package com.example.demo.vo;
 
 import java.time.LocalDateTime;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class BoardVO {
 
 
-	private int no, user_no, count;
-	private String title, content;
-	private Date registerDate;
-	
+	/** 번호 (PK) */
 	private int idx;
 
+	/** 제목 */
+	private String title;
+
+	/** 내용 */
+	private String content;
+	
+	/** 등록일 */
 	private LocalDateTime insertTime;
 	
+	/** 조회 수 */
+	private int count;
+
+	public BoardVO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public int getIdx() {
 		return idx;
 	}
 
 	public void setIdx(int idx) {
 		this.idx = idx;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public LocalDateTime getInsertTime() {
@@ -30,63 +58,12 @@ public class BoardVO {
 	public void setInsertTime(LocalDateTime insertTime) {
 		this.insertTime = insertTime;
 	}
-	
-	public BoardVO() {}
-	
-	public BoardVO(int no, int user_no, int count, String title, String content, Date registerDate) {
-		setNo(user_no);
-		setNo(no);
-		setCount(count);
-		setTitle(title);
-		setContent(content);
-		setRegisterDate(registerDate);
-		
-	}
-	public int getNo() {
-		return no;
-	}
-	public void setNo(int no) {
-		this.no = no;
-	}
-	public int getUser_no() {
-		return user_no;
-	}
-	public void setUser_no(int user_no) {
-		this.user_no = user_no;
-	}
+
 	public int getCount() {
 		return count;
 	}
+
 	public void setCount(int count) {
 		this.count = count;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public Date getRegisterDate() {
-		return registerDate;
-	}
-	public void setRegisterDate(Date registerDate) {
-				
-		this.registerDate = registerDate;
-	}
-
-	@Override
-	public String toString() {
-		return "BoardVO [no=" + no + ", user_no=" + user_no + ", count=" + count + ", title=" + title + ", content="
-				+ content + ", registerDate=" + registerDate + "]";
-	}
-
-	
-	
-	
 }

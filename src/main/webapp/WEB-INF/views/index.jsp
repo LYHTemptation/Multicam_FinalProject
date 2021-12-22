@@ -1,51 +1,73 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Small Business - Start Bootstrap Template</title>
+        <title>TALK TALK 메인페이지</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-        <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
-<script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-
     </head>
     <body>
     <input type="hidden" value="${member.id }" id="member" >
     <input type="hidden" value="${member.user_type }" id="user_type" >
-    
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5">
-                <a class="navbar-brand" href="index">Talk Talk</a>
+                <a class="navbar-brand" href="#!">Talk Talk</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="./index.html">홈</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="./index.html">홈화면</a></li>
                         <li class="nav-item"><a class="nav-link" href="./portfolio-overview.html">카테고리</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./faq.html">부가서비스</a></li>
+                                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">게시판</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="javascript:notice();">공지사항</a></li>
+                                    <li><a class="dropdown-item" href="javascript:proposal();">건의사항</a></li>
+                                    <li><a class="dropdown-item" href="adminPage" id="adminPage_hide">관리자페이지</a></li>
+                                </ul>
+                                
+                            </li>
+                        <c:choose>
+                            <c:when test="${loginSign eq 'Y' }">
                         <li class="nav-item dropdown">
-					      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-					        게시판
-					      </a>
-					      <div class="dropdown-menu">
-					        <a class="dropdown-item" href="#">공지게시판</a>
-					        <a class="dropdown-item" href="#">건의게시판</a>
-					        <a class="dropdown-item" href="adminPage" id="adminPage_hide">관리자페이지</a>
-					      </div>
-					    </li>
-                        
-                        
-                        <!-- <li class="nav-item dropdown"><a class="nav-link" href="./adminPage">게시판</a></li> -->
-                        <li class="nav-item"><a class="nav-link" href="loginPage"><div id="loginDiv">로그인</div></a></li>
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">${session}님</a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="javascript:logout();">로그아웃</a></li>
+                                    <li><a class="dropdown-item" href="javascript:myinfo();">내정보</a></li>
+                                </ul>
+                            </li>
+                            </c:when>
+                            <c:otherwise>
+								<li class="nav-item"><a class="nav-link" href="./login.html">로그인</a></li>                            
+                            </c:otherwise>
+                            </c:choose>
+
                     </ul>
+                     <input  type="button" value="야간" onclick="
+								var target = document.querySelector('body'); 
+								if(this.value === '야간'){
+								target.style.backgroundColor= 'dimgray';
+								target.style.color='white';
+								this.value ='주간';
+								}else{
+								target.style.backgroundColor= 'white';
+								target.style.color='dimgray';
+								this.value ='야간';
+								}
+						">
                 </div>
             </div>
         </nav>
@@ -57,11 +79,9 @@
                 <textarea class="img-fluid rounded mb-4 mb-lg-0" placeholder=" 글을 작성해주세요"style="width: 100%;height: 9.25em;resize: none;"></textarea>
                 </div>
                 <div class="col-lg-5">
-                    <h3 class="font-weight-light">노크를 하듯 상대방에게 Talk Talk</h3>
-                    <h3 class="font-weight-light">${member.id }</h3>
-                    <p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?
-                    </p>
+                    <h3 class="font-weight-light">노크를 하듯 상대방에게 <br><br>Talk Talk</h3>
+                   	<br><br><br><br><br>
+                   	<h3 class="font-weight-light">${member.id }</h3>
                     <a class="btn btn-primary" href="#!">Text To Speach !</a>
                     <a class="btn btn-primary" href="#!">언어 전환 </a>
                 </div>
@@ -111,15 +131,12 @@
         <footer class="py-5 bg-dark">
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
         </footer>
-
-
-        <script	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-        <!-- jQuery library -->
-    `   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/my.js"></script>
+        
     </body>
 </html>
